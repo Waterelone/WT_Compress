@@ -1,7 +1,0 @@
-
-调这句代码，将原图以bitmap形式传进去，第二个参数是压缩后图片的保存路径
-NativeUtil.compressBitmap(bitmap, saveFile.getAbsolutePath());
-
-
-
-示例代码见MainActivity

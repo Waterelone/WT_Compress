@@ -14,4 +14,20 @@ allprojects {
      compile 'com.github.Waterelone:WT_Compress:1.0.0'
  }
  </code></pre>
- **如何使用在DEMO中有说明**
+ **step3：使用说明**
+ <pre><code>
+ public void compressImage(Uri uri) {
+         Log.e("===compressImage===", "====开始传入原图uri==" + uri.getPath());
+         try {
+             File saveFile = new File(getExternalCacheDir(), "compress_" + System.currentTimeMillis() + ".jpg");
+             Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+             Log.e("===compressImage===", "====开始==压缩==saveFile==" + saveFile.getAbsolutePath());
+             NativeUtil.compressBitmap(bitmap, saveFile.getAbsolutePath());
+             Log.e("===compressImage===", "====完成==压缩==saveFile==" + saveFile.getAbsolutePath());
+             imageView.setImageBitmap(bitmap);
+         } catch (IOException e) {
+             e.printStackTrace();
+         }
+
+     }
+</code></pre>
